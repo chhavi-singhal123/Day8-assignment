@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Counter</title>
+</head>
+<body>
+    <script>
+    let numbers = [2, 3, 2, 5, 3, 6, 2, 5, 5, 6];
+    let frequency = {};
+    for (let i = 0; i < numbers.length; i++) {
+        let num = numbers[i];
+        if (frequency[num]) {
+            frequency[num]++;
+        } else {
+            frequency[num] = 1;
+        }
+    }
+    console.log("Frequency of each number:");
+    for (let key in frequency) {
+        console.log(`${key} appears ${frequency[key]} time(s)`);
+    }
+    </script> 
+</body>
+</html>
