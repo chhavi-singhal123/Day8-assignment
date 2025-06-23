@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System</title>
+</head>
+<body>
+    <script>
+    let library = [
+        { title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925, available: true },
+        { title: "1984", author: "George Orwell", year: 1949, available: true },
+        { title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960, available: false }
+    ];
+    function displayAvailableBooks() {
+        console.log("Available Books:");
+        library.forEach(book => {
+            if (book.available) {
+                console.log(`${book.title} by ${book.author} (${book.year})`);
+            }
+        });
+    }
+    function borrowBook(title) {
+        const book = library.find(book => book.title.toLowerCase() === title.toLowerCase());
+        if (book) {
+            if (book.available) {
+                book.available = false;
+                console.log(`You have borrowed "${book.title}".`);
+            } else {
+                console.log(`Sorry, "${book.title}" is already borrowed.`);
+            }
+        } else {
+            console.log(`Book titled "${title}" not found.`);
+        }
+    }
+    function addBook(title, author, year) {
+        library.push({ title, author, year, available: true });
+        console.log(`Book "${title}" added to the library.`);
+    }
+    displayAvailableBooks();
+    borrowBook("1984");
+    addBook("The Alchemist", "Paulo Coelho", 1988);
+    displayAvailableBooks();
+
+    </script>
+</body>
+</html>
